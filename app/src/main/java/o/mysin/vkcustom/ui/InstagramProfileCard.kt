@@ -1,5 +1,6 @@
 package o.mysin.vkcustom.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +9,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,35 +24,49 @@ import androidx.compose.ui.unit.sp
 @Preview
 @Composable
 fun InstagramProfileCard() {
-    Row(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically,
+    Card(
+        colors =
+            CardDefaults.cardColors(
+                containerColor = Color.White,
+                contentColor = Color.Black,
+            ),
+        shape =
+            RoundedCornerShape(
+                topStart = 4.dp,
+                topEnd = 4.dp,
+            ),
+        border = BorderStroke(width = 1.dp, Color.Black),
     ) {
-        Box(
+        Row(
             modifier =
                 Modifier
-                    .size(50.dp)
-                    .background(color = Color.Green),
-        )
+                    .fillMaxWidth()
+                    .padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                modifier =
+                    Modifier
+                        .size(50.dp)
+                        .background(color = Color.Green),
+            )
 
-        StatisticMetrics(
-            value = "6.950",
-            title = "Posts",
-        )
+            StatisticMetrics(
+                value = "6.950",
+                title = "Posts",
+            )
 
-        StatisticMetrics(
-            value = "436M",
-            title = "Followers",
-        )
+            StatisticMetrics(
+                value = "436M",
+                title = "Followers",
+            )
 
-        StatisticMetrics(
-            value = "76",
-            title = "Following",
-        )
+            StatisticMetrics(
+                value = "76",
+                title = "Following",
+            )
+        }
     }
 }
 
