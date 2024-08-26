@@ -1,5 +1,6 @@
 package o.mysin.vkcustom.ui
 
+import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,22 +22,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import o.mysin.vkcustom.ui.theme.VkCustomTheme
 
-@Preview
 @Composable
 fun InstagramProfileCard() {
     Card(
+        modifier =
+            Modifier
+                .padding(8.dp),
         colors =
             CardDefaults.cardColors(
-                containerColor = Color.White,
-                contentColor = Color.Black,
+                containerColor = MaterialTheme.colorScheme.background,
+                contentColor = MaterialTheme.colorScheme.onBackground,
             ),
         shape =
             RoundedCornerShape(
                 topStart = 4.dp,
                 topEnd = 4.dp,
             ),
-        border = BorderStroke(width = 1.dp, Color.Black),
+        border = BorderStroke(width = 2.dp, MaterialTheme.colorScheme.onBackground),
     ) {
         Row(
             modifier =
@@ -91,5 +96,21 @@ private fun StatisticMetrics(
             text = title,
             fontSize = 8.sp,
         )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewCardLight() {
+    VkCustomTheme {
+        InstagramProfileCard()
+    }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL)
+@Composable
+fun PreviewCardDark() {
+    VkCustomTheme {
+        InstagramProfileCard()
     }
 }
