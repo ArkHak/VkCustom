@@ -19,6 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,28 +59,28 @@ fun InstagramProfileCard() {
                         .background(color = Color.Green),
             )
 
-            StatisticMetrics(
-                value = "6.950",
+            UserStatistics(
                 title = "Posts",
+                value = "6.950",
             )
 
-            StatisticMetrics(
-                value = "436M",
+            UserStatistics(
                 title = "Followers",
+                value = "436M",
             )
 
-            StatisticMetrics(
-                value = "76",
+            UserStatistics(
                 title = "Following",
+                value = "76",
             )
         }
     }
 }
 
 @Composable
-private fun StatisticMetrics(
-    value: String,
+private fun UserStatistics(
     title: String,
+    value: String,
 ) {
     Column(
         modifier =
@@ -89,12 +91,15 @@ private fun StatisticMetrics(
     ) {
         Text(
             text = value,
-            fontSize = 16.sp,
+            fontSize = 24.sp,
+            fontFamily = FontFamily.Cursive,
+            fontWeight = FontWeight.Bold,
         )
 
         Text(
             text = title,
-            fontSize = 8.sp,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.ExtraBold,
         )
     }
 }
