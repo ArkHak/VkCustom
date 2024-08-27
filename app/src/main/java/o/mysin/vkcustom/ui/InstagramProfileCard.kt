@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -49,40 +50,80 @@ fun InstagramProfileCard() {
             ),
         border = BorderStroke(width = 2.dp, MaterialTheme.colorScheme.onBackground),
     ) {
-        Row(
+        Column(
             modifier =
                 Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically,
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 16.dp,
+                    ),
         ) {
-            Image(
+            Row(
                 modifier =
                     Modifier
-                        .size(60.dp)
-                        .clip(CircleShape)
-                        .background(Color.White)
-                        .padding(6.dp),
-                painter = painterResource(R.drawable.ic_instagram),
-                contentDescription = "Avatar Title Image",
-                contentScale = ContentScale.Fit,
+                        .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Image(
+                    modifier =
+                        Modifier
+                            .size(60.dp)
+                            .clip(CircleShape)
+                            .background(Color.White)
+                            .padding(6.dp),
+                    painter = painterResource(R.drawable.ic_instagram),
+                    contentDescription = "Avatar Title Image",
+                    contentScale = ContentScale.Fit,
+                )
+
+                UserStatistics(
+                    title = "Posts",
+                    value = "6.950",
+                )
+
+                UserStatistics(
+                    title = "Followers",
+                    value = "436M",
+                )
+
+                UserStatistics(
+                    title = "Following",
+                    value = "76",
+                )
+            }
+
+            Text(
+                modifier =
+                    Modifier
+                        .padding(bottom = 8.dp),
+                text = "Instagram",
+                fontSize = 32.sp,
+                fontFamily = FontFamily.Cursive,
+                fontWeight = FontWeight.Bold,
             )
 
-            UserStatistics(
-                title = "Posts",
-                value = "6.950",
+            Text(
+                text = "#YoursToMake",
+                fontSize = 14.sp,
             )
 
-            UserStatistics(
-                title = "Followers",
-                value = "436M",
+            Text(
+                modifier =
+                    Modifier
+                        .padding(bottom = 4.dp),
+                text = "www.facebook.com/emo_health",
+                fontSize = 14.sp,
             )
 
-            UserStatistics(
-                title = "Following",
-                value = "76",
-            )
+            Button(
+                shape = RoundedCornerShape(8.dp),
+                onClick = {},
+            ) {
+                Text(
+                    text = "Follow",
+                )
+            }
         }
     }
 }
