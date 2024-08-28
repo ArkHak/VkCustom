@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import o.mysin.vkcustom.ui.InstagramProfileCard
+import o.mysin.vkcustom.ui.PostCard
 import o.mysin.vkcustom.ui.theme.VkCustomTheme
 
 class AppActivity : ComponentActivity() {
@@ -29,7 +29,7 @@ class AppActivity : ComponentActivity() {
                                 .fillMaxSize()
                                 .padding(innerPadding),
                     ) {
-                        InstagramProfileCard()
+                        PostCard()
                     }
                 }
             }
